@@ -12,6 +12,8 @@ https://www.nature.com/articles/4000662
 - Ju, Dan, and Iain Mathieson. "The evolution of skin pigmentation-associated variation in West Eurasia." Proceedings of the National Academy of Sciences 118.1 (2021): e2009227118. https://www.pnas.org/doi/10.1073/pnas.2009227118#sec-3 
 
 - Wand, Hannah, et al. "Improving reporting standards for polygenic scores in risk prediction studies." Nature 591.7849 (2021): 211-219. https://www.nature.com/articles/s41586-021-03243-6
+ 
+- Uffelmann, Emil, et al. "Genome-wide association studies." Nature Reviews Methods Primers 1.1 (2021): 59. https://www.nature.com/articles/s43586-021-00056-9
 
 - Neale Lab, UK Biobank GWAS [Accessed 06 April 2023]. https://www.nealelab.is/uk-biobank
 
