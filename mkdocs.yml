@@ -1,0 +1,33 @@
+# Project information
+site_name: "Introduction to GWAS"
+site_author: Vladimir Bajić
+
+
+# Theme
+theme: 
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - bash
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+
+# Pages  
+nav:
+    - Home: 0_index.md
+    - Background: 1_background.md
+    - QC: 2_QC.md
+    - Population Stratifiction: 3_pop_stratification.md
+    - Association: 4_association.md 
