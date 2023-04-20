@@ -1,5 +1,6 @@
 # Project information
 site_name: "Introduction to GWAS"
+repo_url: https://github.com/bajicv/gwas_intro
 site_author: Vladimir Bajić
 
 
@@ -23,11 +24,17 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.highlight:
       anchor_linenums: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 # Pages  
 nav:
-    - Home: 0_index.md
+    - Home: index.md
     - Background: 1_background.md
     - QC: 2_QC.md
     - Population Stratifiction: 3_pop_stratification.md
     - Association: 4_association.md 
+    - PGS: 5_PGS.md
+    - HapMap preparation: 6_preparation_HapMap.md
+    - 1KGP preparation: 7_preparation_1KGP.md
+    - References: 8_refs.md
