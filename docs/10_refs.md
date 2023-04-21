@@ -15,6 +15,8 @@ https://www.nature.com/articles/4000662
  
 - Uffelmann, Emil, et al. "Genome-wide association studies." Nature Reviews Methods Primers 1.1 (2021): 59. https://www.nature.com/articles/s43586-021-00056-9
 
+- Gibbs, Richard A., et al. "The international HapMap project." (2003). https://www.nature.com/articles/nature02168
+
 - Neale Lab, UK Biobank GWAS [Accessed 06 April 2023]. https://www.nealelab.is/uk-biobank
 
 - https://choishingwan.github.io/PRSice/

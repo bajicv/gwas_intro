@@ -2,6 +2,8 @@
 
 Genome-wide association studies (GWAS) test hundreds of thousands of genetic variants across many genomes to find those statistically associated with a specific trait or disease. This methodology has generated a myriad of robust associations for a range of traits and diseases, and the number of associated variants is expected to grow steadily as GWAS sample sizes increase. GWAS results have a range of applications, such as gaining insight into a phenotype’s underlying biology, estimating its heritability, calculating genetic correlations, making clinical risk predictions, informing drug development programmes and inferring potential causal relationships between risk factors and health outcomes.
 
+## Overview of steps for conducting GWAS
+
 ![gwas](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs43586-021-00056-9/MediaObjects/43586_2021_56_Fig1_HTML.png?as=webp)
 
 __a)__  Data can be collected from study cohorts or available genetic and phenotypic information can be used from biobanks or repositories. Confounders need to be carefully considered and recruitment strategies must not introduce biases such as [collider bias](https://en.wikipedia.org/wiki/Collider_(statistics)). 

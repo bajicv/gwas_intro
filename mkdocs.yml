@@ -31,7 +31,7 @@ markdown_extensions:
 nav:
     - Home: index.md
     - GWAS: 01_GWAS.md
-    - Plink: 02_plink.md
+    - Software: 02_software.md
     - Dataset: 03_dataset.md
     - QC: 04_QC.md
     - Population Stratifiction: 05_pop_stratification.md
