@@ -1,8 +1,8 @@
 # PGS
 
-A __polygenic score (PGS)__ or __polygenic risk score (PRS)__ is an estimate of an individual’s genetic liability to a trait or disease, calculated according to their genotype profile and relevant genome-wide association study (GWAS) data. While present PRSs typically explain only a small fraction of trait variance, their correlation with the single largest contributor to phenotypic variation—genetic liability—has led to the routine application of PRSs across biomedical research. Among a range of applications, PRSs are exploited to assess shared etiology between phenotypes, to evaluate the clinical utility of genetic data for complex disease and as part of experimental studies in which, for example, experiments are performed that compare outcomes (e.g., gene expression and cellular response to treatment) between individuals with low and high PRS values. As GWAS sample sizes increase and PRSs become more powerful, PRSs are set to play a key role in research and stratified medicine. However, despite the importance and growing application of PRSs, there are limited guidelines for performing PRS analyses, which can lead to inconsistency between studies and misinterpretation of results. 
+A __polygenic score (PGS)__ or __polygenic risk score (PRS)__ is an estimate of an individual’s genetic liability to a trait or disease, calculated according to their genotype profile and relevant genome-wide association study (GWAS) data. While present PGSs typically explain only a small fraction of trait variance, their correlation with the single largest contributor to phenotypic variation—genetic liability—has led to the routine application of PGSs across biomedical research. Among a range of applications, PGSs are exploited to assess shared etiology between phenotypes, to evaluate the clinical utility of genetic data for complex disease and as part of experimental studies in which, for example, experiments are performed that compare outcomes (e.g., gene expression and cellular response to treatment) between individuals with low and high PGS values. As GWAS sample sizes increase and PGSs become more powerful, PGSs are set to play a key role in research and stratified medicine. However, despite the importance and growing application of PGSs, there are limited guidelines for performing PGS analyses, which can lead to inconsistency between studies and misinterpretation of results. 
 
-While genome-wide complex trait analysis, __LD score regression__ and PRS can all be exploited to infer heritability and shared etiology among complex traits, PRS is the only approach that provides an estimate of genetic liability to a trait at the individual level. In the __classic PRS method__ (commonly known as the clumping + thresholding i.e. __C+T method__), a polygenic risk score is calculated by computing the sum of risk alleles that an individual has, weighted by the risk allele effect sizes as estimated by a GWAS on the phenotype. The method involves computing PRSs based on a subset of partially independent (__clumped__) SNPs exceeding a specific GWAS association P value threshold. PRS values are computed in relation to a hypothetical individual with the non-effect allele at every SNP, and, thus, they provide only a relative (compared to other individuals) estimate of risk (or trait effect) rather than an absolute estimate.
+While genome-wide complex trait analysis, __LD score regression__ and PGS can all be exploited to infer heritability and shared etiology among complex traits, PGS is the only approach that provides an estimate of genetic liability to a trait at the individual level. In the __classic PGS method__ (commonly known as the clumping + thresholding i.e. __C+T method__), a polygenic risk score is calculated by computing the sum of risk alleles that an individual has, weighted by the risk allele effect sizes as estimated by a GWAS on the phenotype. The method involves computing PGSs based on a subset of partially independent (__clumped__) SNPs exceeding a specific GWAS association P value threshold. PGS values are computed in relation to a hypothetical individual with the non-effect allele at every SNP, and, thus, they provide only a relative (compared to other individuals) estimate of risk (or trait effect) rather than an absolute estimate.
 
 As GWAS sample sizes increase, polygenic scores are likely to play a central role in the future of biomedical research and personalized medicine. However, the efficacy of their use will depend on the continued development of methods that exploit them, their proper analysis and appropriate interpretation and an understanding of their strengths and limitations.
 
@@ -19,9 +19,7 @@ __Polygenic risk score (PRS)__ is a subset of PGS that is used to estimate the r
 
 # PGS in plink
 
-https://zzz.bwh.harvard.edu/plink/profile.shtml
-
-plink provides a convenient function `--score` and `--q-score-range` for calculating polygenic scores.
+[plink](https://zzz.bwh.harvard.edu/plink/profile.shtml) provides a convenient function `--score` and `--q-score-range` for calculating polygenic scores.
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -56,14 +54,14 @@ To identify genome-wide significant and independent SNPs, we will performe clump
 
 And then performe clumping.
 
-    plink \
-        --bfile ../data/1kgp \
-        --clump skincolor_QC.tsv \
-        --clump-p1 5.0e-8 \
-        --clump-r2 0.5 \
-        --clump-kb 100 \
-        --clump-snp-field rsid \
-        --clump-field pval \
+    plink
+        --bfile ../data/1kgp
+        --clump skincolor_QC.tsv
+        --clump-p1 5.0e-8
+        --clump-r2 0.5
+        --clump-kb 100
+        --clump-snp-field rsid
+        --clump-field pval
         --out 1kgp
 
 
@@ -73,30 +71,30 @@ This will generate `1kgp.clumped` file, containing the index SNPs after clumping
 
 ## PGS calculation
     
-    plink \
-        --bfile ../data/1kgp \
-        --score skincolor_QC.tsv 1 2 3 sum header \
-        --extract 1kgp.clumped.snp \
-        --out prs_1kgp
+    plink
+        --bfile ../data/1kgp
+        --score skincolor_QC.tsv 1 2 3 sum header
+        --extract 1kgp.clumped.snp
+        --out pgs_1kgp
 
 We can quickly sort based on the predicted value and see that there seem to be a geographic pattern. EUR samples tend to have lower values while AFR samples have higher values.
 
-    sort -gk 6 prs_1kgp.profile
+    sort -gk 6 pgs_1kgp.profile
 
-We can inspect how this PRS is distributed across world populations.
+We can inspect how this PGS is distributed across world populations.
 
-    Rscript --vanilla plot_prs.R
+    Rscript --vanilla plot_pgs.R
 
 > Homework:
-    By default, if a genotype in the plink's `--score` is missing for a particular individual, then the expected value is imputed, i.e. based on the sample allele frequency. To change this behavior, we can add the flag  `--score-no-mean-imputation`. Calculate PRS as above but this time add `--score-no-mean-imputation` and compare the results.
+    By default, if a genotype in the plink's `--score` is missing for a particular individual, then the expected value is imputed, i.e. based on the sample allele frequency. To change this behavior, we can add the flag  `--score-no-mean-imputation`. Calculate PGS as above but this time add `--score-no-mean-imputation` and compare the results.
 
 
 ---------------------------------------
 
 
-    plink \
-        --bfile ../data/1kgp \
-        --score <(grep "^[^#;]" PGS002110.txt) 1 4 6 sum header \
-        --out prs_1kgp_PGS
+    plink
+        --bfile ../data/1kgp
+        --score <(grep "^[^#;]" PGS002110.txt) 1 4 6 sum header
+        --out pgs_1kgp_PGS
 
-Rscript --vanilla plot_prs_noimputation.R
+Rscript --vanilla plot_pgs_noimputation.R

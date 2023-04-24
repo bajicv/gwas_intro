@@ -1,6 +1,10 @@
 # Population stratification
 
+![PCA Europe](https://whyevolutionistrue.com/wp-content/uploads/2012/02/picture-210.png)
+
 __Population stratification__ is the presence of multiple subpopulations (e.g., individuals with different ethnic background) in a study. Because allele frequencies can differ between subpopulations, population stratification can lead to false positive associations and/or mask true associations. An excellent example of this is the __chopstick gene__, where a SNP, due to population stratification, accounted for nearly half of the variance in the capacity to eat with chopsticks [(Hamer & Sirota, 2000)](https://www.nature.com/articles/4000662).
+
+![Chopstick gene](https://pbs.twimg.com/media/EcOkZTDXgAYhr0w?format=jpg&name=large)
 
 There are several methods to correct for population stratification. In this tutorial, we will illustrate a method that is incorporated in `plink`: __the multidimensional scaling (MDS)__ approach. This method calculates the genome‐wide average proportion of alleles shared between any pair of individuals within the sample to generate quantitative indices (components) of the genetic variation for each individual. The individual component scores can be plotted to explore whether there are groups of individuals that are genetically more similar to each other than expected. For example, in a genetic study including subjects from Asia and Europe, MDS analysis would reveal that Asians are genetically more similar to each other than to Europeans. To investigate if there is population structure within a dataset, or if there are any individuals that deviate considerably fromt the rest of the sample it is helpful to use a referene pannel with known populations such as 1KGP (also called __anchoring__). Anchoring enables us not only to obtain information on getic background of studied individuals, but also to determine possible outliers. Individuals who are outliers based on the MDS analysis should be removed from further analyses. After the exclusion of these individuals, a new MDS analysis should be conducted, and its main components should to be used as __covariates__ in the association tests in order to correct for any remaining population stratification within the studied population. How many components need to be included depends on the population structure and the sample size, but the inclusion of up to 10 components is generally accepted.
 
@@ -58,7 +62,7 @@ The `mds_plot.pdf` shows that majority of our "HapMap" data falls within the Eur
 
 ----
 
-## Exclude outliers from HapMap data
+### Exclude outliers from HapMap data
 
 We will use first two dimensions of MDS plot to define outliers. We will select individuals in HapMap data that cluster within other European samples present in 1KGP. The cut-off levels are not fixed thresholds and you will have to be determined them based on the visualization of the first two dimensions. To exclude outliers, the thresholds needs to be set around the cluster of individuals of interest. In our case majority of our individuals fall within Europeans and only few within African individuals from 1KGP.
 
@@ -72,7 +76,7 @@ As we can see all of those individuals were removed in our QC, but in reality th
 
 ----
 
-## MDS on European HapMap
+### MDS on European HapMap
 
 We will perform additional MDS analysis on the filltered HapMap datast without outliers. We will then use the values of the 10 MDS dimensions as covariates in the association analysis in the next tutorial.
 
@@ -87,7 +91,7 @@ Now we can use our R script to plot mds.
 
 ----
 
-## Create covariates based on MDS
+### Create covariates based on MDS
 
 Change the format of the `.mds` file into a plink covariate file.
 

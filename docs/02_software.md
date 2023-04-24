@@ -2,6 +2,8 @@
 
 For QC and statistical analyses will use [plink 1.9](https://www.cog-genomics.org/plink/1.9/), and for the data visualization we will use `R`.
 
+----
+
 ## Plink
 
 We will be working with `plink`, a free, open-source whole-genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner. Even though the focus of `plink` is  on analysis of genotype/phenotype data, it is widely used in popgen as it has many features for data manipulation, it offers basic statistics, and many popgen tools assume input files to be in plink format (e.g. `fastStructure`, `ADMIXTURE`, etc.). `Plink` parses each command line as a collection of flags (each of which starts with two dashes `--`), plus parameters (which immediately follow a flag).

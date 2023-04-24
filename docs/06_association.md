@@ -38,8 +38,8 @@ The `--logistic` option is more flexible than the `--assoc` option, yet it comes
     
     plink --bfile out/hapmap_gwa --assoc --out out/assoc_results
 
-> __Note:__ \
-The `--assoc` option __does not allow to correct covariates__ such as principal components (PCs) or MDS components, which makes it _less suited for association analyses_.
+!!! note
+    The `--assoc` option __does not allow to correct covariates__ such as principal components (PCs) or MDS components, which makes it _less suited for association analyses_.
 
 ----
 
@@ -49,8 +49,8 @@ We will be using 10 MDS components calculated from the previous tutorial as cova
 
     plink --bfile out/hapmap_gwa --covar out/hapmap_gwa.covar --logistic --hide-covar --out out/logistic_results
 
->__Note:__\
-We use the option `--hide-covar` to only show the additive results of the SNPs in the output file.
+!!! note
+    We use the option `--hide-covar` to only show the additive results of the SNPs in the output file.
 
 Remove `NA` values, those might give problems generating plots in next steps
 
@@ -58,8 +58,8 @@ Remove `NA` values, those might give problems generating plots in next steps
 
 The results obtained from these GWAS analyses will be visualized in the last step. This will also show if the data set contains any genome-wide significant SNPs.
 
->__Note:__\
-In case of a __quantitative outcome measure__ the option `--logistic` should be replaced by `--linear`. The use of the `--assoc` option is also possible for quantitative outcome measures (as metioned previously, this option does not allow the use of covariates).
+!!! note
+    In case of a __quantitative outcome measure__ the option `--logistic` should be replaced by `--linear`. The use of the `--assoc` option is also possible for quantitative outcome measures (as metioned previously, this option does not allow the use of covariates).
 
 ----
 
