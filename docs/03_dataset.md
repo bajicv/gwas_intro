@@ -2,8 +2,6 @@
 
 ## HapMap
 
-![HapMap logo](http://english.big.cas.cn/rh/rps/200908/W020090828602790381352.jpg){width=100%}
-
 The goal of the __International HapMap Project__ was to determine the common patterns of DNA sequence variation in the human genome and to make this information freely available in the public domain. An international consortium developed a map of these patterns across the genome by determining the genotypes of one million or more sequence variants, their frequencies and the degree of association between them, in DNA samples from populations with ancestry from parts of Africa, Asia and Europe. The HapMap has become an important tool for researchers to use to find genes that affect health, disease, and response to drugs and environmental factors.
 
 The DNA sequence of any two people is 99.9 percent identical. The variations, however, may greatly affect an individual's disease risk. Sites in the DNA sequence where individuals differ at a single DNA base are called Single Nucleotide Polymorphisms (__SNPs__). Sets of nearby SNPs on the same chromosome are inherited in blocks. This pattern of SNPs on a block is a __haplotype__. Blocks may contain a large number of SNPs, but a few SNPs (i.e. __tag SNPs__) are enough to uniquely identify the haplotypes in a block. The HapMap is a map of these haplotype blocks and the specific SNPs that identify the haplotypes are called tag SNPs.

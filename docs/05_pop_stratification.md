@@ -58,7 +58,9 @@ Now we can use our R script to plot mds.
     
     Rscript --vanilla scripts/mds.R
 
-The `mds_plot.pdf` shows that majority of our "HapMap" data falls within the European (EUR) individuals of the 1KGP data. However, we can see that few individuals are withing Africans (which were left in dataset on purpose as ouliers). We will exclude them in next couple of steps. 
+![mds](pics/mds_plot.png)
+
+The `mds_plot.png` shows that majority of our "HapMap" data falls within the European (EUR) individuals of the 1KGP data. However, we can see that few individuals are withing Africans (which were left in dataset on purpose as ouliers). We will exclude them in next couple of steps. 
 
 ----
 
@@ -88,6 +90,7 @@ Now we can use our R script to plot mds.
     
     Rscript --vanilla scripts/mds_EUR.R
 
+![mds_EUR](pics/mds_EUR_plot.png)
 
 ----
 

@@ -118,4 +118,15 @@ We can use R script `manhattan_qq.R` to create Manhattan and QQ plots.
 
     Rscript --vanilla scripts/manhattan_qq.R
 
+
+
+![manhattan_logistic](pics/manhattan_logistic.png){width=45%} 
+![qq_plot_logistic](pics/qq_plot_logistic.png){width=45%}
+
+![manhattan_assoc](pics/manhattan_assoc.png){width=45%}
+![qq_plot_assoc](pics/qq_plot_assoc.png){width=45%}
+
+![manhattan_assoc_CHR8](pics/manhattan_assoc_CHR8.png){width=45%}
+
+
 ----
