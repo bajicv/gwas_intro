@@ -18,7 +18,7 @@ To download the __1000 Genomes Project (1KGP)__ `vcf` file containing 629 indivi
 
 SNP calls based on 628 individuals from the 2010-08-04 sequence and alignment release of the 1000 Genomes Project is based on the __GRCh37__ assembly of the human genome, and are released in the format VCF 4.0 ([IGSR November 2010 Data Release](https://www.internationalgenome.org/announcements/november-2010-data-release-2010-11-09/)).
 
-Once the data is downloaded (e.g. in `exercises/data` directory), we can prepare a list of SNPs present in HapMap plink files (i.e. `hapmap_0.bim`)
+Once the data is downloaded (e.g. in `gwas_exercises/data` directory), we can prepare a list of SNPs present in HapMap plink files (i.e. `hapmap_0.bim`)
 
     awk '{print $2}' data/hapmap_0.bim > out/hapmap_0.SNPs
 

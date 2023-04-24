@@ -32,15 +32,20 @@ To be able to illustrate all analysis steps using realistic genetic data, [Maree
 
 ## Copying data for tutorials and exercises
 
-Copy tutorials and exercises in your home directory. The `gwas_intro` directory contains a few subdirectories that will help us to keep our tutorial and output organized. 
+Copy tutorials and exercises in your home directory.
+
+    cd ~
+    
+    cp -r /opt/evop/public/BIOINFORMATICS/gwas_exercises ~
+    
+    cd ~/gwas_exercises/out
+
+
+The `gwas_intro` directory contains a few subdirectories that will help us to keep our tutorial and output organized. 
 
 - `data`: contains data necessary for this tutorial.
 - `scripts`: contains R scripts that we will use to visualize the output. 
 - `plots`: will store plots produces by R scripts.
-- `out`: will store final and all intermediate files of gwas analyses.
-- `pgs`: will store files necessary for the PGS part of the tutorial.
-
-    cd ~
-    cp -r /opt/evop/public/BIOINFORMATICS/gwas_exercises ~
+- `out`: will store final and all intermediate files of this tutorial.
 
 ----

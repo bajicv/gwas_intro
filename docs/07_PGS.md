@@ -29,6 +29,8 @@ __Polygenic risk score (PRS)__ is a subset of PGS that is used to estimate the r
 
 In this tutorial we will work with summary statistics from UK Biobank GWAS for skin color (data field 1717) from the publicly available release by the Neale Lab [(version 3, Manifest Release 20180731)](https://docs.google.com/spreadsheets/d/1kvPoupSzsSFBNSztMzl04xMoSC3Kcx3CrjVf4yBmESU/edit#gid=227859291). This GWAS measured self-reported skin color as a categorical variable (very fair, fair, light olive, dark olive, brown, black). In this file the reported beta values show estimated effect size of __alt allele__.
 
+    cd ~/gwas_exercises/out
+
     wget https://broad-ukb-sumstats-us-east-1.s3.amazonaws.com/round2/additive-tsvs/1717.gwas.imputed_v3.both_sexes.tsv.bgz -O 1717.gwas.imputed_v3.both_sexes.tsv.bgz
 
 We will also download file contains annotations for each variant in the GWAS.
@@ -54,14 +56,14 @@ To identify genome-wide significant and independent SNPs, we will performe clump
 
 And then performe clumping.
 
-    plink
-        --bfile ../data/1kgp
-        --clump skincolor_QC.tsv
-        --clump-p1 5.0e-8
-        --clump-r2 0.5
-        --clump-kb 100
-        --clump-snp-field rsid
-        --clump-field pval
+    plink \
+        --bfile ../data/1kgp \
+        --clump skincolor_QC.tsv \
+        --clump-p1 5.0e-8 \
+        --clump-r2 0.5 \
+        --clump-kb 100 \
+        --clump-snp-field rsid \
+        --clump-field pval \
         --out 1kgp
 
 
@@ -71,10 +73,10 @@ This will generate `1kgp.clumped` file, containing the index SNPs after clumping
 
 ## PGS calculation
     
-    plink
-        --bfile ../data/1kgp
-        --score skincolor_QC.tsv 1 2 3 sum header
-        --extract 1kgp.clumped.snp
+    plink \
+        --bfile ../data/1kgp \
+        --score skincolor_QC.tsv 1 2 3 sum header \
+        --extract 1kgp.clumped.snp \
         --out pgs_1kgp
 
 We can quickly sort based on the predicted value and see that there seem to be a geographic pattern. EUR samples tend to have lower values while AFR samples have higher values.
@@ -83,7 +85,7 @@ We can quickly sort based on the predicted value and see that there seem to be a
 
 We can inspect how this PGS is distributed across world populations.
 
-    Rscript --vanilla plot_pgs.R
+    Rscript --vanilla ../scripts/plot_pgs.R
 
 ![pgs](pics/prs_plot.png)
 
