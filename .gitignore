@@ -157,4 +157,8 @@ cython_debug/
 site/
 
 # Ignore files in directories
-exercises/
+gwas_exercises/data/*
+!gwas_exercises/data/1kgp.tar.gz
+!gwas_exercises/data/hapmap.tar.gz
+gwas_exercises/out/
+gwas_exercises/plots/

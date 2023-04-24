@@ -6,7 +6,7 @@
 
 Download HapMap.
 
-    cd ~/gwas_intro/exercises/
+    cd ~/gwas_exercises/
     
     mkdir prep_hapmap
 

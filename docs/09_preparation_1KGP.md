@@ -10,11 +10,11 @@ Assumption is that you have access to the "raw" 1KGP (described bellow how to do
 
 To download the __1000 Genomes Project (1KGP)__ `vcf` file containing 629 individuals from different populations one can use the ftp link from an official [International Genome Sample Resource (IGSR) webpage](https://www.internationalgenome.org/). The 1KGP vcf file is quite large (>60 gigabyte), and for the sake of the time and memory we will not run those command. Commands presented here are only for the reference on how the files we are using were created. 
     
-    cd ~/gwas_intro/exercises/data
+    cd ~/gwas_exercises/data
     
     wget ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz
 
-    cd ~/gwas_intro/exercises
+    cd ~/gwas_exercises
 
 SNP calls based on 628 individuals from the 2010-08-04 sequence and alignment release of the 1000 Genomes Project is based on the __GRCh37__ assembly of the human genome, and are released in the format VCF 4.0 ([IGSR November 2010 Data Release](https://www.internationalgenome.org/announcements/november-2010-data-release-2010-11-09/)).
 

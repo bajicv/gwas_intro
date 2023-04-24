@@ -36,7 +36,9 @@ The `--logistic` option is more flexible than the `--assoc` option, yet it comes
 
 ### `--assoc`
     
-    plink --bfile out/hapmap_gwa --assoc --out out/assoc_results
+    cd ~/gwas_exercises/out
+
+    plink --bfile hapmap_gwa --assoc --out assoc_results
 
 !!! note
     The `--assoc` option __does not allow to correct covariates__ such as principal components (PCs) or MDS components, which makes it _less suited for association analyses_.
@@ -47,14 +49,14 @@ The `--logistic` option is more flexible than the `--assoc` option, yet it comes
 
 We will be using 10 MDS components calculated from the previous tutorial as covariates in this logistic analysis.
 
-    plink --bfile out/hapmap_gwa --covar out/hapmap_gwa.covar --logistic --hide-covar --out out/logistic_results
+    plink --bfile hapmap_gwa --covar hapmap_gwa.covar --logistic --hide-covar --out logistic_results
 
 !!! note
     We use the option `--hide-covar` to only show the additive results of the SNPs in the output file.
 
 Remove `NA` values, those might give problems generating plots in next steps
 
-    awk '!/'NA'/' out/logistic_results.assoc.logistic > out/logistic_results.assoc_2.logistic
+    awk '!/'NA'/' logistic_results.assoc.logistic > logistic_results.assoc_2.logistic
 
 The results obtained from these GWAS analyses will be visualized in the last step. This will also show if the data set contains any genome-wide significant SNPs.
 
@@ -81,7 +83,7 @@ Three widely applied alternatives for determining genome-wide significance are t
 
 To easily apply Bonferroni and FDR correction, `plink` offers the option `--adjust` that generates output in which the unadjusted p value is displayed, along with p values corrected with various multiple testing correction methods.
 
-    plink --bfile out/hapmap_gwa -assoc --adjust --out out/adjusted_assoc_results
+    plink --bfile hapmap_gwa -assoc --adjust --out adjusted_assoc_results
 
 This file gives a __Bonferroni corrected p-value__, along with __FDR__ and others.
 
@@ -99,15 +101,15 @@ To reduce computational time we will perform this test only on a subset of the S
 
 Generate subset of SNPs from chromosome 22
 
-    plink --bfile out/hapmap_gwa --chr 22 --make-bed --out out/hapmap_gwa_chr22subset
+    plink --bfile hapmap_gwa --chr 22 --make-bed --out hapmap_gwa_chr22subset
 
 Perform 1000000 perrmutations
 
-    plink --bfile out/hapmap_gwa_chr22subset --assoc --mperm 1000000 --out out/hapmap_gwa_chr22subset
+    plink --bfile hapmap_gwa_chr22subset --assoc --mperm 1000000 --out hapmap_gwa_chr22subset
 
 Order your data, from lowest to highest p-value and check ordered permutation results
 
-    sort -gk 4 out/hapmap_gwa_chr22subset.assoc.mperm | head
+    sort -gk 4 hapmap_gwa_chr22subset.assoc.mperm | head
 
 
 ----
@@ -116,7 +118,7 @@ Order your data, from lowest to highest p-value and check ordered permutation re
 
 We can use R script `manhattan_qq.R` to create Manhattan and QQ plots.
 
-    Rscript --vanilla scripts/manhattan_qq.R
+    Rscript --vanilla ../scripts/manhattan_qq.R
 
 
 

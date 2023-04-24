@@ -18,9 +18,11 @@ To performe this tutorial you will need the files present in `gwas_intro/exercis
 
 Before merging we will "update" HapMap FID (i.e. overwrite the real FID) to contain indication that samples are comming from HapMap dataset and this will help us to identify them in merged dataset by simply looking at in the `fam` file.
 
-    awk 'FS=" " {print $1, $2, "HapMap", $2}' data/hapmap.fam > out/hapmap_update_IDs
+    cd ~/gwas_exercises/out
+    
+    awk 'FS=" " {print $1, $2, "HapMap", $2}' ../data/hapmap.fam > hapmap_update_IDs
 
-    plink --bfile data/hapmap --update-ids out/hapmap_update_IDs --make-bed --out out/hapmap_mds
+    plink --bfile ../data/hapmap --update-ids hapmap_update_IDs --make-bed --out hapmap_mds
 
 ----
 
@@ -28,9 +30,9 @@ Before merging we will "update" HapMap FID (i.e. overwrite the real FID) to cont
 
 While merging the two datasets we will also extract the variants present in 1KGP dataset from the HapMap dataset.
 
-    awk '{print $2}' data/1kgp.bim > out/1kgp.SNPs
+    awk '{print $2}' ../data/1kgp.bim > 1kgp.SNPs
     
-    plink --bfile out/hapmap_mds --bmerge data/1kgp --extract out/1kgp.SNPs --make-bed --out out/merge_mds
+    plink --bfile hapmap_mds --bmerge ../data/1kgp --extract 1kgp.SNPs --make-bed --out merge_mds
 
 ----
 
@@ -38,7 +40,7 @@ While merging the two datasets we will also extract the variants present in 1KGP
 
 After merging, we will perform quick QC on the merged dataset. We will remove individuals and variants based on missingness, and variants based on MAF.
 
-    plink --bfile out/merge_mds --mind 0.2 --geno 0.2 --maf 0.05 --allow-no-sex --make-bed --out out/merge_mds_qc
+    plink --bfile merge_mds --mind 0.2 --geno 0.2 --maf 0.05 --allow-no-sex --make-bed --out merge_mds_qc
 
 ----
 
@@ -46,17 +48,17 @@ After merging, we will perform quick QC on the merged dataset. We will remove in
 
 Before running MDS we will LD prune the data.
 
-    plink --bfile out/merge_mds_qc --indep-pairwise 50 5 0.2 --out out/merge_mds_qc
+    plink --bfile merge_mds_qc --indep-pairwise 50 5 0.2 --out merge_mds_qc
 
-    plink --bfile out/merge_mds_qc --extract out/merge_mds_qc.prune.in --make-bed --out out/merge_mds_qc_pruned
+    plink --bfile merge_mds_qc --extract merge_mds_qc.prune.in --make-bed --out merge_mds_qc_pruned
 
-    plink --bfile out/merge_mds_qc_pruned --genome --out out/merge_mds_qc_pruned
+    plink --bfile merge_mds_qc_pruned --genome --out merge_mds_qc_pruned
 
-    plink --bfile out/merge_mds_qc_pruned --read-genome out/merge_mds_qc_pruned.genome --cluster --mds-plot 10 --out out/merge_mds_qc_pruned
+    plink --bfile merge_mds_qc_pruned --read-genome merge_mds_qc_pruned.genome --cluster --mds-plot 10 --out merge_mds_qc_pruned
 
 Now we can use our R script to plot mds.
     
-    Rscript --vanilla scripts/mds.R
+    Rscript --vanilla ../scripts/mds.R
 
 ![mds](pics/mds_plot.png)
 
@@ -68,11 +70,11 @@ The `mds_plot.png` shows that majority of our "HapMap" data falls within the Eur
 
 We will use first two dimensions of MDS plot to define outliers. We will select individuals in HapMap data that cluster within other European samples present in 1KGP. The cut-off levels are not fixed thresholds and you will have to be determined them based on the visualization of the first two dimensions. To exclude outliers, the thresholds needs to be set around the cluster of individuals of interest. In our case majority of our individuals fall within Europeans and only few within African individuals from 1KGP.
 
-    grep -f <(awk '{ if ($1 == "HapMap" && $4 >0.04 && $5 >0.03) print $2 }' out/merge_mds_qc_pruned.mds) out/hapmap_9.fam > out/EUR_samples
+    grep -f <(awk '{ if ($1 == "HapMap" && $4 >0.04 && $5 >0.03) print $2 }' merge_mds_qc_pruned.mds) hapmap_9.fam > EUR_samples
 
 Extract these individuals in HapMap data.
 
-    plink --bfile out/hapmap_9 --keep out/EUR_samples --make-bed --out out/hapmap_gwa
+    plink --bfile hapmap_9 --keep EUR_samples --make-bed --out hapmap_gwa
 
 As we can see all of those individuals were removed in our QC, but in reality this might not be the case.
 
@@ -82,13 +84,13 @@ As we can see all of those individuals were removed in our QC, but in reality th
 
 We will perform additional MDS analysis on the filltered HapMap datast without outliers. We will then use the values of the 10 MDS dimensions as covariates in the association analysis in the next tutorial.
 
-    plink --bfile out/hapmap_gwa --genome --out out/hapmap_gwa
+    plink --bfile hapmap_gwa --genome --out hapmap_gwa
 
-    plink --bfile out/hapmap_gwa --read-genome out/hapmap_gwa.genome --cluster --mds-plot 10 --out out/hapmap_gwa
+    plink --bfile hapmap_gwa --read-genome hapmap_gwa.genome --cluster --mds-plot 10 --out hapmap_gwa
 
 Now we can use our R script to plot mds.
     
-    Rscript --vanilla scripts/mds_EUR.R
+    Rscript --vanilla ../scripts/mds_EUR.R
 
 ![mds_EUR](pics/mds_EUR_plot.png)
 
@@ -98,7 +100,7 @@ Now we can use our R script to plot mds.
 
 Change the format of the `.mds` file into a plink covariate file.
 
-    awk '{print$1, $2, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13}' out/hapmap_gwa.mds > out/hapmap_gwa.covar
+    awk '{print$1, $2, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13}' hapmap_gwa.mds > hapmap_gwa.covar
 
 In the next tutorial we will use the values in `hapmap_gwa.covar` as covariates in order to adjust for remaining population stratification.
 
