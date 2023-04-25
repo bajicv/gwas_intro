@@ -34,6 +34,18 @@ Binary `plink` data consist of three files (one binary and two text files which 
 
 Analysis using __covariates__ often requires the fourth file, containing the values of these covariates for each individual.
 
+!!! note
+    At `evop-login` server PLINK v1.9 can be used by typing `plink1.9`. For simplicity reasons let's create an __alias__ so we can call `plink1.9` by simply typing `plink`. To do so we have to add `alias plink='plink1.9'` in our `.bashrc` file. We can do it directly from command line with help of `echo` and append `>>` (be carefule to run append only once).
+       
+       # add plink alias in .bashrc    
+       echo "alias plink='plink1.9'" >> ~/.bashrc
+
+       # source .bashrc to actualize the changes
+       source ~/.bashrc
+
+       # check if plink is added to the list of aliases
+       alias
+
 ----
 
 ## R
