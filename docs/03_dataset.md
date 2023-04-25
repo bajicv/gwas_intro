@@ -32,10 +32,8 @@ To be able to illustrate all analysis steps using realistic genetic data, [Maree
 
 ## Copying data for tutorials and exercises
 
-Copy tutorials and exercises in your home directory.
+Copy tutorials and exercises in your home directory and move to `gwas_exercises/out` from where you will execute all of the commands from this tutorial.
 
-    cd ~
-    
     cp -r /opt/evop/public/BIOINFORMATICS/gwas_exercises ~
     
     cd ~/gwas_exercises/out
