@@ -12,6 +12,6 @@ prs_p <- ggplot(prs, aes(x = reorder(FID, SCORESUM), y = SCORESUM, fill = FID)) 
                 xlab("Continental population")
 
 # save plots as pdf files ####
-ggsave("../plots/prs_plot.png", prs_p,
+ggsave("../plots/pgs_plot.png", prs_p,
     dpi = 300, width = 20, height = 10,
     units = "cm", device = "png")

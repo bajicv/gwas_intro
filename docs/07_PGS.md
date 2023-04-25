@@ -48,7 +48,7 @@ We will extract only unique SNPs present in 1KGP from summary statistics.
     
     echo -e "rsid\talt\tbeta\tpval" > skincolor_QC.tsv
 
-    grep -wf <(cut -f2 ../data/1kgp_0.bim) skincolor.tsv | awk '!seen[$1]++' >> skincolor_QC.tsv
+    grep -wf <(cut -f2 ../data/1kgp.bim) skincolor.tsv | awk '!seen[$1]++' >> skincolor_QC.tsv
 
 ## Clumping
 
