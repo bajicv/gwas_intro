@@ -24,6 +24,36 @@ __h)__ In silico analysis of genome-wide association studies (GWAS), using infor
 
 ----
 
+## Visualizing GWAS results
+
+__Manhattan plot__ and __quantile–quantile plot__ are used to visualize GWAS results.
+
+![Manhattan plot](https://www.nature.com/articles/s43586-021-00056-9/figures/2)
+
+__a)__ __Manhattan plot__ showing significance of each variant’s association with a phenotype (body mass index in this case77). Each dot represents a single-nucleotide polymorphism (SNP), with SNPs ordered on the __x axis__ according to their genomic position. __y axis__ represents strength of their association measured as __–log10 transformed P values__. Red line marks genome-wide significance threshold of __P < 5 × 10–8__. 
+
+__b)__ __Quantile–quantile plot__ showing distribution of __expected P values__ under a null model of no significance versus __observed P values__. Expected –log10 transformed P values (__x axis__) for each association are plotted against observed values (__y axis__) to visualize the enrichment of association signal. Deviation from the expectation under the null hypothesis (red line) indicates the presence of either __true causal effects__ or __insufficiently corrected population stratification__. In the case of true causal effects, one would expect to observe this deviation mostly at the right side of the plot, whereas population stratification causes the deviation to start closer to the origin. In this case, BMI is extremely polygenic and the genome-wide association study (GWAS) was highly powered, which may also cause the deviation to start close to the origin, making it difficult to visually spot stratification. [LDSC](https://github.com/bulik/ldsc) may be used to assess whether this inflation is due to bias or polygenicity.
+
+
+
+----
+
+## Functional follow-up of GWAS
+
+![followup](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs43586-021-00056-9/MediaObjects/43586_2021_56_Fig3_HTML.png?as=webp)
+
+__a)__ Genome-wide association studies (GWAS) are conducted to identify associated variants, often visualized as a Manhattan plot to show their genomic positions and strength of association. 
+
+__b)__ To prioritize __likely causal variants__, statistical __fine-mapping__ is applied to identify a set of variants that are likely to include the causal variant (blue box) as well as the most likely causal variant (rs12345; blue dot). [Massively parallel reporter assays](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7938388/) can be used to measure whether alleles differ in their ability to drive gene expression or other molecular activity for each variant (not shown). 
+
+__c)__ __Functional annotations of the genome__ can be integrated with GWAS data to identify __epigenetic__ mechanisms that may be perturbed by the causal variant, including enhancers, promoters or other functional elements. Additional approaches include mapping molecular quantitative trait loci (molQTL) or in vitro assays (not shown). 
+
+__d)__ __Target gene for a GWAS locus__ can be prioritized by mapping __expression quantitative trait loci (eQTLs)__ (left) and their co-localization (right) to identify loci where the causal variant from GWAS is also a causal variant affecting gene expression. For GWAS variants in enhancers, high-throughput chromosome conformation capture (Hi-C) data and maps of enhancer target genes can be used together with simple prioritization by distance to identify genes affected by the causal variant (below). 
+
+__e)__ To identify __pathways__ whose perturbation may mediate the trait in question (red box), one can analyse the enrichment of multiple GWAS-implicated genes in predefined pathways. Additional approaches include trans-eQTL mapping and CRISPR perturbation of GWAS loci/genes followed by cellular phenotyping (not shown). For these analyses, the context of a relevant tissue, cell type and cell state needs to be carefully considered and analysed. ATAC-seq, assay for transposase-accessible chromatin using sequencing; H3K27Ac, histone H3 acetylated at K27; SNP, single-nucleotide polymorphism.
+
+----
+
 ## Missing heritability
 
 __Feasibility of identifying genetic variants by risk allele frequency and strength of genetic effect (odds ratio).__
