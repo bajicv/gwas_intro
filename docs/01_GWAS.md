@@ -28,7 +28,7 @@ __h)__ In silico analysis of genome-wide association studies (GWAS), using infor
 
 __Manhattan plot__ and __quantile–quantile plot__ are used to visualize GWAS results.
 
-![Manhattan plot](https://www.nature.com/articles/s43586-021-00056-9/figures/2)
+![Manhattan plot](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs43586-021-00056-9/MediaObjects/43586_2021_56_Fig2_HTML.png?as=webp)
 
 __a)__ __Manhattan plot__ showing significance of each variant’s association with a phenotype (body mass index in this case77). Each dot represents a single-nucleotide polymorphism (SNP), with SNPs ordered on the __x axis__ according to their genomic position. __y axis__ represents strength of their association measured as __–log10 transformed P values__. Red line marks genome-wide significance threshold of __P < 5 × 10–8__. 
 
