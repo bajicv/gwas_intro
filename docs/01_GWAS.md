@@ -14,11 +14,11 @@ __c)__ Quality control (__QC__) includes steps at the wet-laboratory stage, such
 
 __d)__ Genotypic data can be phased, and untyped genotypes imputed using information from matched reference populations from repositories such as [1000 Genomes Project](https://www.internationalgenome.org/1000-genomes-summary) or [TopMed](https://topmed.nhlbi.nih.gov/). In this example, genotypes of SNP1 and SNP3 are imputed based on the directly assayed genotypes of other SNPs. 
 
-__e)__ Genetic association tests are run for each genetic variant, using an appropriate model (for example, additive, non-additive, linear or logistic regression). Confounders are corrected for, including population strata, and multiple testing needs to be controlled. Output is inspected for unusual patterns and summary statistics are generated. 
+__e)__ Genetic association tests are run for each genetic variant, using an appropriate model (for example, __additive__, __non-additive__, __linear__ or __logistic regression__). Confounders are corrected for, including population strata, and __multiple testing__ needs to be controlled. Output is inspected for unusual patterns and __summary statistics__ are generated. 
 
 __f)__ Results from multiple smaller cohorts are combined using standardized statistical pipelines. 
 
-__g)__ Results can be replicated using internal replication or external replication in an independent cohort. For external replication, the independent cohort must be ancestrally matched and not share individuals or family members with the discovery cohort. 
+__g)__ Results can be __replicated__ using internal replication or external replication in an independent cohort. For external replication, the independent cohort must be ancestrally matched and not share individuals or family members with the discovery cohort. 
 
 __h)__ In silico analysis of genome-wide association studies (GWAS), using information from external resources. This can include in silico fine-mapping, SNP to gene mapping, gene to function mapping, pathway analysis, genetic correlation analysis, [Mendelian randomization](https://www.cdc.gov/genomics/events/precision_med_pop.htm#:~:text=Mendelian%20randomization%20is%20a%20method,on%20disease%20in%20observational%20studies.) and [polygenic risk prediction](https://en.wikipedia.org/wiki/Polygenic_score#:~:text=In%20a%20polygenic%20risk%20predictor,nucleotide%20polymorphisms%2C%20or%20SNPs). After GWAS, functional hypotheses can be tested using experimental techniques such as [CRISPR](https://en.wikipedia.org/wiki/CRISPR) or massively parallel reporter assays, or results can be validated in a human trait/disease model.
 
@@ -26,19 +26,22 @@ __h)__ In silico analysis of genome-wide association studies (GWAS), using infor
 
 ## Visualizing GWAS results
 
-__Manhattan plot__ and __quantile–quantile plot__ are used to visualize GWAS results.
+The primary output of a GWAS analysis is a list of P values, effect sizes and their directions generated from the association tests of all tested genetic variants with a phenotype of interest. These data are routinely visualized using __Manhattan plot__ and __quantile–quantile plot__ , generated using software tools such as `R` or __web platforms__ such as [FUMA](https://fuma.ctglab.nl/) or [LocusZoom](http://locuszoom.org/).
+
 
 ![Manhattan plot](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs43586-021-00056-9/MediaObjects/43586_2021_56_Fig2_HTML.png?as=webp)
 
-__a)__ __Manhattan plot__ showing significance of each variant’s association with a phenotype (body mass index in this case77). Each dot represents a single-nucleotide polymorphism (SNP), with SNPs ordered on the __x axis__ according to their genomic position. __y axis__ represents strength of their association measured as __–log10 transformed P values__. Red line marks genome-wide significance threshold of __P < 5 × 10–8__. 
+__a)__ __Manhattan plot__ showing significance of each variant’s association with a phenotype (body mass index in this case). Each dot represents a single-nucleotide polymorphism (SNP), with SNPs ordered on the _x axis_ according to their genomic position. _y axis_ represents strength of their association measured as __–log10 transformed P values__. Red line marks genome-wide significance threshold of __P < 5 × 10–8__. 
 
-__b)__ __Quantile–quantile plot__ showing distribution of __expected P values__ under a null model of no significance versus __observed P values__. Expected –log10 transformed P values (__x axis__) for each association are plotted against observed values (__y axis__) to visualize the enrichment of association signal. Deviation from the expectation under the null hypothesis (red line) indicates the presence of either __true causal effects__ or __insufficiently corrected population stratification__. In the case of true causal effects, one would expect to observe this deviation mostly at the right side of the plot, whereas population stratification causes the deviation to start closer to the origin. In this case, BMI is extremely polygenic and the genome-wide association study (GWAS) was highly powered, which may also cause the deviation to start close to the origin, making it difficult to visually spot stratification. [LDSC](https://github.com/bulik/ldsc) may be used to assess whether this inflation is due to bias or polygenicity.
+__b)__ __Quantile–quantile plot__ showing distribution of __expected P values__ under a null model of no significance versus __observed P values__. Expected –log10 transformed P values (_x axis_) for each association are plotted against observed values (_y axis_) to visualize the enrichment of association signal. Deviation from the expectation under the null hypothesis (red line) indicates the presence of either __true causal effects__ or __insufficiently corrected population stratification__. In the case of true causal effects, one would expect to observe this deviation mostly at the right side of the plot, whereas population stratification causes the deviation to start closer to the origin. In this case, BMI is extremely polygenic and the genome-wide association study (GWAS) was highly powered, which may also cause the deviation to start close to the origin, making it difficult to visually spot stratification. [LDSC](https://github.com/bulik/ldsc) may be used to assess whether this inflation is due to bias or polygenicity.
 
 
 
 ----
 
 ## Functional follow-up of GWAS
+
+Follow-up analysis of GWAS are needed to interpret the list of P values obtained in GWAS. Those follow-up analysis aim in determining the most likely causal variants, their functional interpretation and possible convergence in meaningful biological pathways. 
 
 ![followup](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs43586-021-00056-9/MediaObjects/43586_2021_56_Fig3_HTML.png?as=webp)
 
