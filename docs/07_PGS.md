@@ -8,12 +8,26 @@ As GWAS sample sizes increase, polygenic scores are likely to play a central rol
 
 The use of summary statistic data for the genotype effect size estimates distinguishes polygenic scores from __phenotypic prediction__ approaches that exploit individual-level data only.
 
+__Overview of the steps necessary for calculating PGSs__
+
+![PRS](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs43586-021-00056-9/MediaObjects/43586_2021_56_Fig4_HTML.png?as=webp)
+
+__Step 1:__ genome-wide association studies (GWAS) __summary statistics__ are obtained, which detail the effect of each single-nucleotide polymorphism (SNP) on the phenotype of interest. 
+
+__Step 2:__ genotype data for a set of individuals are referenced against GWAS summary statistics. Here, genotype data for four SNPs are shown for four individuals. 
+
+__Step 3:__ __polygenic risk scores (PRSs)__ or __polygenic scores (PGSs)__ can be calculated for each individual by summing up the effect sizes of all risk alleles for each individual. 
+
+__Step 4:__ linear regression analysis is performed on the calculated PRS to assess the effect of the PRS on the outcome measure.
+
 
 ----
 
-__Polygenic score (PGS)__ is a single value that quantifies an individual’s genetic predisposition to a trait. Typically calculated by summing the number of trait-associated alleles in an individual weighted by per-allele effect sizes from a discovery GWAS, and normalized using a relevant population distribution. Sometimes referred to as a __genetic score__.
+!!! note
+    
+    __Should it be polygenic score (PGS) or polygenic risk score (PRS)? Does the name matter?__
 
-__Polygenic risk score (PRS)__ is a subset of PGS that is used to estimate the risk of disease or other clinically relevant outcomes (binary or discrete). Sometimes referred to as a __genetic or genomic risk score (GRS)__. See categories below.
+    The history of nomenclature in this space is extensive and can be so confusing for newcomers! Typically, the term __PGS__ is applied to quantitative traits whereas __PRS__ is used in the context of disease susceptibility. See [Kullo et al. 2022](https://www.nature.com/articles/s41576-022-00470-z#citeas) for more details.
 
 ----
 

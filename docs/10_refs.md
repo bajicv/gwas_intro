@@ -17,6 +17,8 @@ https://www.nature.com/articles/4000662
 
 - Manolio, Teri A., et al. "Finding the missing heritability of complex diseases." Nature 461.7265 (2009): 747-753. https://www.nature.com/articles/nature08494
 
+- Kullo, Iftikhar J., et al. "Polygenic scores in biomedical research." Nature Reviews Genetics 23.9 (2022): 524-532. https://www.nature.com/articles/s41576-022-00470-z#citeas
+
 - Gibbs, Richard A., et al. "The international HapMap project." (2003). https://www.nature.com/articles/nature02168
 
 - Neale Lab, UK Biobank GWAS [Accessed 06 April 2023]. https://www.nealelab.is/uk-biobank
