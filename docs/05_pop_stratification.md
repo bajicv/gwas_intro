@@ -98,9 +98,9 @@ Now we can use our R script to plot mds.
 
 ### Create covariates based on MDS
 
-Change the format of the `.mds` file into a plink covariate file.
+Change the format of the `.mds` file into a plink covariate file (i.e. exclude 3rd column).
 
-    awk '{print$1, $2, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13}' hapmap_gwa.mds > hapmap_gwa.covar
+    awk '{$3=""; print}' hapmap_gwa.mds > hapmap_gwa.covar
 
 In the next tutorial we will use the values in `hapmap_gwa.covar` as covariates in order to adjust for remaining population stratification.
 

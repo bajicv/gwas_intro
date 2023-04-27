@@ -101,7 +101,7 @@ We can inspect how this PGS is distributed across world populations.
 
     Rscript --vanilla ../scripts/plot_pgs.R
 
-![pgs](pics/prs_plot.png)
+![pgs](pics/pgs_plot.png)
 
 !!! warning "Homework"
     By default, if a genotype in the plink's `--score` is missing for a particular individual, then the expected value is imputed, i.e. based on the sample allele frequency. To change this behavior, we can add the flag  `--score-no-mean-imputation`. Calculate PGS as above but this time add `--score-no-mean-imputation` and compare the results.

@@ -49,6 +49,7 @@ _Publications:_
 <br/>[A global reference for human genetic variation Nature 526, 68–74 (01 October 2015)](https://www.nature.com/articles/nature15393)
 <br/>[An integrated map of structural variation in 2,504 human genomes Nature 526, 75–81 (01 October 2015)](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html)
 
+----
 
 ### 1KGP data
 
@@ -56,7 +57,7 @@ The 1KGP `vcf` files containing 629 individuals from different populations could
 
 ----
 
-## Copying data for tutorials and exercises
+## Copying data for tutorials
 
 Copy tutorials and exercises in your home directory and move to `gwas_exercises/out` from where you will execute all of the commands from this tutorial.
 
