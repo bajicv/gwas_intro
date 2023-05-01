@@ -19,6 +19,8 @@ https://www.nature.com/articles/4000662
 
 - Kullo, Iftikhar J., et al. "Polygenic scores in biomedical research." Nature Reviews Genetics 23.9 (2022): 524-532. https://www.nature.com/articles/s41576-022-00470-z#citeas
 
+- Martin, Alicia R., et al. "Clinical use of current polygenic risk scores may exacerbate health disparities." Nature genetics 51.4 (2019): 584-591. https://www.nature.com/articles/s41588-019-0379-x
+
 - Gibbs, Richard A., et al. "The international HapMap project." (2003). https://www.nature.com/articles/nature02168
 
 - Novembre, John, et al. "Genes mirror geography within Europe." Nature 456.7218 (2008): 98-101. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2735096/

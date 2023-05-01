@@ -118,7 +118,7 @@ Three widely applied alternatives for determining genome-wide significance are t
 
 ### `--adjust`
 
-To easily apply Bonferroni and FDR correction, `plink` offers the option `--adjust` that generates output in which the unadjusted p value is displayed, along with p values corrected with various multiple testing correction methods.
+To easily apply __Bonferroni__ and __FDR__ correction, `plink` offers the option `--adjust` that generates output in which the unadjusted p value is displayed, along with p values corrected with various multiple testing correction methods.
 
     plink --bfile hapmap_gwa -assoc --adjust --out adjusted_assoc_results
 
@@ -126,7 +126,7 @@ This file gives a __Bonferroni corrected p-value__, along with __FDR__ and other
 
 ----
 
-### Permutation
+### `--mperm`
 
 To perform __permutation test__ in `plink`, options `--assoc` and `--mperm` can be combined to generate two p values: 
 <br/>- __EMP1__, the empirical p value (uncorrected), and 
