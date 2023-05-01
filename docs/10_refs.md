@@ -21,6 +21,8 @@ https://www.nature.com/articles/4000662
 
 - Gibbs, Richard A., et al. "The international HapMap project." (2003). https://www.nature.com/articles/nature02168
 
+- Novembre, John, et al. "Genes mirror geography within Europe." Nature 456.7218 (2008): 98-101. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2735096/
+
 - Neale Lab, UK Biobank GWAS [Accessed 06 April 2023]. https://www.nealelab.is/uk-biobank
 
 - https://choishingwan.github.io/PRSice/
