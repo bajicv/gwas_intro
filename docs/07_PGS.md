@@ -8,6 +8,10 @@ As GWAS sample sizes increase, polygenic scores are likely to play a central rol
 
 The use of summary statistic data for the genotype effect size estimates distinguishes polygenic scores from __phenotypic prediction__ approaches that exploit individual-level data only.
 
+!!! note
+    [The Polygenic Score (PGS) Catalog](https://www.pgscatalog.org/) is an open database of polygenic scores and the relevant metadata required for accurate application and evaluation.
+
+----
 ## Overview of the steps necessary for calculating PGSs
 
 ![PRS](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs43586-021-00056-9/MediaObjects/43586_2021_56_Fig4_HTML.png?as=webp)
@@ -53,6 +57,7 @@ The order of variants in `variants.tsv` file matches the order of variants in th
 
     paste <(zcat variants.tsv.bgz | cut -f5,6) <(zcat 1717.gwas.imputed_v3.both_sexes.tsv.bgz | cut -f8,11) | awk '{print $2,$1,$3,$4}' > skincolor.tsv
 
+----
 
 ### QC summary statistics
 
@@ -62,6 +67,7 @@ We will extract only unique SNPs present in 1KGP from summary statistics.
 
     grep -wf <(cut -f2 ../data/1kgp.bim) skincolor.tsv | awk '!seen[$1]++' >> skincolor_QC.tsv
 
+----
 ### Clumping
 
 To identify genome-wide significant and independent SNPs, we will performe clumping using `plink` with 1000 Genomes Project as an LD reference panel.
@@ -83,6 +89,7 @@ This will generate `1kgp.clumped` file, containing the index SNPs after clumping
 
     awk 'NR!=1{print $3}' 1kgp.clumped >  1kgp.clumped.snp
 
+----
 ### PGS calculation
     
     plink \
@@ -93,10 +100,10 @@ This will generate `1kgp.clumped` file, containing the index SNPs after clumping
 
 We can quickly sort based on the predicted value and see that there seem to be a geographic pattern. EUR samples tend to have lower values while AFR samples have higher values.
 
+    sort -gk 6 pgs_1kgp.profile
+
 !!! warning "Homework"
     By default, if a genotype in the plink's `--score` is missing for a particular individual, then the expected value is imputed, i.e. based on the sample allele frequency. To change this behavior, we can add the flag  `--score-no-mean-imputation`. Calculate PGS as above but this time add `--score-no-mean-imputation` and compare the results.
-
-    sort -gk 6 pgs_1kgp.profile
 
 Since we do not have a dataset (independent from the discovery panel) with phenotypes we will not perform all the steps necessary for proper calculation of PGS. However, we can compare PGS scores across world populations. Still, we have to be aware that PRS are more accurate in European populations (in those that are better covered with GWAS), and thus we have to be careful when interpreting those results. 
 
