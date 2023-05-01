@@ -2,7 +2,7 @@
 suppressMessages(library(tidyverse))
 
 # read data into R ####
-mds <- suppressWarnings(read_table(file = "merge_mds_qc_pruned.mds", col_types = "fffdddddddddd"))
+mds <- suppressWarnings(read_table(file = "merged_qc_pruned.mds", col_types = "fffdddddddddd"))
 
 
 # mds plot ####
