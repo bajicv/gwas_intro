@@ -2,10 +2,10 @@
 
 ![PCA Europe](https://whyevolutionistrue.com/wp-content/uploads/2012/02/picture-210.png)
 
-__Population structure within Europe.__ A statistical summary of genetic data from 1,387 Europeans based on the first two principal components (PC1 and PC2) from __principal component analysis (PCA)__. Small coloured labels represent individuals and large coloured points represent median PC1 and PC2 values for each country. The inset map provides a key to the labels. The PC axes are rotated to emphasize the similarity to the geographic map of Europe ([Novembre et al. 2008](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2735096/)).
+__Population structure within Europe.__ A statistical summary of genetic data from 1,387 Europeans based on the first two principal components (PC1 and PC2) from principal component analysis (PCA). Small coloured labels represent individuals and large coloured points represent median PC1 and PC2 values for each country. The inset map provides a key to the labels. The PC axes are rotated to emphasize the similarity to the geographic map of Europe ([Novembre et al. 2008](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2735096/)).
 
 !!! note
-    Principal Component Analysis (PCA) is a commonly used multivariate analysis in population genetics that reduces the complexity of genetic datasets while preserving data covariance. PCA scatterplots are used to display genetic distances between a set of individuals. On such plots, each data point represents an individual person, plotted according to the __eigenvalues__ of the two chosen __principal components__ (usually the first two PCs) of the data calculated from the covariance matrix of a genome-wide SNP dataset.
+    __Principal Component Analysis (PCA)__ is a commonly used multivariate analysis in population genetics that reduces the complexity of genetic datasets while preserving data covariance. PCA scatterplots are used to display genetic distances between a set of individuals. On such plots, each data point represents an individual person, plotted according to the __eigenvalues__ of the two chosen __principal components__ (usually the first two PCs) of the data calculated from the covariance matrix of a genome-wide SNP dataset.
 
 ----
 
@@ -100,6 +100,9 @@ Now we can use our R script to plot mds.
     Rscript --vanilla ../scripts/mds_EUR.R
 
 ![mds_EUR](pics/mds_EUR_plot.png)
+
+!!! warning "Question"
+    _Do you see population stratification based on the first components of MDS performed on the European samples?_
 
 ----
 

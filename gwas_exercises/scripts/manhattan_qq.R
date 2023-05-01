@@ -27,5 +27,5 @@ dev.off()
 
 # plot QQ-plot: assoc ####
 png("../plots/qq_plot_assoc.png")
-qq(results_as$P, main = "Q-Q plot of GWAS p-values : log")
+qq(results_as$P, main = "Q-Q plot of GWAS p-values : assoc")
 dev.off()
