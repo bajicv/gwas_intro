@@ -120,7 +120,7 @@ Three widely applied alternatives for determining genome-wide significance are t
 
 To easily apply __Bonferroni__ and __FDR__ correction, `plink` offers the option `--adjust` that generates output in which the unadjusted p value is displayed, along with p values corrected with various multiple testing correction methods.
 
-    plink --bfile hapmap_gwa -assoc --adjust --out adjusted_assoc_results
+    plink --bfile hapmap_gwa --assoc --adjust --out adjusted_assoc_results
 
 This file gives a __Bonferroni corrected p-value__, along with __FDR__ and others.
 
